@@ -12,15 +12,16 @@ $ ->
 
 		# render Library by rendering each book in the collection
 		render: ->
-			_.each( @collection, (item) -> console.log item)
+			@collection.each (item) =>
+				@renderBook item
 				
 
 		renderBook: (item) ->
-			console.log item['title']
-			# bookView = new App.bookView
-			# 	model: item
-				
-			# 	@$el.append bookView.render().el
+			# create new item based on item data passed from render function
+			bookView = new App.BookView
+				model: item	
+			
+			@$el.append bookView.render().el
 
 
 

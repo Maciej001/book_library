@@ -36,7 +36,7 @@ ul {
 	list-style-type: none;
 }
 
-input, button {
+input, button, .book-container {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -69,6 +69,7 @@ input {
 	margin-bottom: 20px;
 }
 
+
 .left-panel {
 	background: #e5e5e5;
 }
@@ -77,6 +78,18 @@ input {
 	float: right;
 	background: #e5e5e5;
 	clear: right;
+}
+.book-container {
+	float: left;
+	width: 350px;
+	margin: 0 30px 30px 0;
+	padding: 20px;
+	border: 1px solid #ccc;
+}
+
+#addBook {
+	max-width: 800px;
+	margin-bottom: 50px;
 }
 
 header {
@@ -105,4 +118,8 @@ button:hover {
 	-moz-transition: all 0.3s;
 	-o-transition: all 0.3;
 	-ms-transition: all 0.3s;
+}
+
+.cover-photo {
+	width: 200px;
 }

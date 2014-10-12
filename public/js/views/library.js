@@ -19,13 +19,19 @@
       };
 
       LibraryView.prototype.render = function() {
-        return _.each(this.collection, function(item) {
-          return console.log(item);
-        });
+        return this.collection.each((function(_this) {
+          return function(item) {
+            return _this.renderBook(item);
+          };
+        })(this));
       };
 
       LibraryView.prototype.renderBook = function(item) {
-        return console.log(item['title']);
+        var bookView;
+        bookView = new App.BookView({
+          model: item
+        });
+        return this.$el.append(bookView.render().el);
       };
 
       return LibraryView;

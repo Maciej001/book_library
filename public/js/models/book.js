@@ -12,7 +12,7 @@
       }
 
       Book.prototype.defaults = {
-        coverImage: '../img/ejs.png',
+        coverImage: '../public/img/ejs.png',
         title: 'No title',
         author: 'Unknown',
         releaseDate: 'Unknown',
