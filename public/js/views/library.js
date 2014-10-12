@@ -4,7 +4,7 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   $(function() {
-    return app.LibraryView = (function(_super) {
+    return App.LibraryView = (function(_super) {
       __extends(LibraryView, _super);
 
       function LibraryView() {
@@ -13,22 +13,19 @@
 
       LibraryView.prototype.el = '#books';
 
-      LibraryView.prototype.initialize = function() {
-        this.collection = new app.Library(initialBooks);
-        return this.render;
+      LibraryView.prototype.initialize = function(initialBooks) {
+        this.collection = new App.Library(initialBooks);
+        return this.render();
       };
 
       LibraryView.prototype.render = function() {
-        return this.collection.each(function(item) {
-          return this.renderBook(item, this);
+        return _.each(this.collection, function(item) {
+          return console.log(item);
         });
       };
 
       LibraryView.prototype.renderBook = function(item) {
-        var bookView;
-        return bookView = new app.bookView({
-          model: item
-        }, this.$el.append(bookView.render().el));
+        return console.log(item['title']);
       };
 
       return LibraryView;

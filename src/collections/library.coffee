@@ -1,5 +1,7 @@
 # src/collections/library.coffee
+#
+# Library collection
 
 $ ->
-	class app.Library extends Backbone.Collection
-		model: app.Book
+	class App.Library extends Backbone.Collection
+		model: App.Book

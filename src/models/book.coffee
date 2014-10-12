@@ -1,7 +1,9 @@
 # src/models/book.coffee
+#
+# Book model
 
 $ ->
-	class app.Book extends Backbone.Model
+	class App.Book extends Backbone.Model
 		defaults:
 			coverImage: '../img/ejs.png'
 			title:			'No title'
