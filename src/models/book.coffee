@@ -1,6 +1,7 @@
 # src/models/book.coffee
 #
 # Book model
+# creates a simple model for single Book
 
 $ ->
 	class App.Book extends Backbone.Model

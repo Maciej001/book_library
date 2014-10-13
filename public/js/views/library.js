@@ -13,6 +13,10 @@
 
       LibraryView.prototype.el = '#books';
 
+      LibraryView.prototype.events = {
+        'click #add': 'addBook'
+      };
+
       LibraryView.prototype.initialize = function(initialBooks) {
         this.collection = new App.Library(initialBooks);
         return this.render();
@@ -32,6 +36,20 @@
           model: item
         });
         return this.$el.append(bookView.render().el);
+      };
+
+      LibraryView.prototype.addBook = function(e) {
+        var $book_data, formData;
+        $book_data = $('.add-book-inputs');
+        formData = {};
+        e.preventDefault();
+        $book_data.each(function(index, el) {
+          if ($(el).val() !== '') {
+            return formData[el.id] = $(el).val();
+          }
+        });
+        this.collection.add(new App.Book(formData));
+        return console.log(this.collection);
       };
 
       return LibraryView;
