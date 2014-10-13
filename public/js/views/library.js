@@ -19,7 +19,8 @@
 
       LibraryView.prototype.initialize = function(initialBooks) {
         this.collection = new App.Library(initialBooks);
-        return this.render();
+        this.render();
+        return this.listenTo(this.collection, 'add', this.renderBook);
       };
 
       LibraryView.prototype.render = function() {
@@ -45,11 +46,16 @@
         e.preventDefault();
         $book_data.each(function(index, el) {
           if ($(el).val() !== '') {
-            return formData[el.id] = $(el).val();
+            if ($(el).attr('id') === 'coverImage') {
+              formData['coverImage'] = '../public/img/' + $(el).val().replace(/^.*[\\\/]/, '');
+            } else {
+              formData[el.id] = $(el).val().split("\"").pop();
+            }
+            return $(el).val('');
           }
         });
-        this.collection.add(new App.Book(formData));
-        return console.log(this.collection);
+        $book_data[1].focus();
+        return this.collection.add(new App.Book(formData));
       };
 
       return LibraryView;
