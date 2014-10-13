@@ -17,9 +17,22 @@
 
       BookView.prototype.template = _.template($('#bookTemplate').html());
 
+      BookView.prototype.events = {
+        'click .delete': 'deleteBook'
+      };
+
+      BookView.prototype.initialize = function() {
+        return this.listenTo(this.model, 'destroy', this.remove);
+      };
+
       BookView.prototype.render = function() {
         this.$el.html(this.template(this.model.toJSON()));
         return this;
+      };
+
+      BookView.prototype.deleteBook = function() {
+        console.log('delete clicked');
+        return this.model.destroy();
       };
 
       return BookView;

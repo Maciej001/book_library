@@ -3,6 +3,8 @@
 # Book model
 # creates a simple model for single Book
 
+# book cover images have to be placed in public/img/ folder 
+
 $ ->
 	class App.Book extends Backbone.Model
 		defaults:
